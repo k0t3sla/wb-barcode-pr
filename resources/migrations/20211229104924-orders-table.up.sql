@@ -1,0 +1,17 @@
+CREATE TABLE orders
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+ article_imt VARCHAR(300),
+ color VARCHAR(300),
+ size VARCHAR(10),
+ article_wb VARCHAR(300),
+ chrt_id VARCHAR(300),
+ barcode VARCHAR(300),
+ trademark VARCHAR(300),
+ order_id VARCHAR(300),
+ wbsticker VARCHAR(10000),
+ wbsticker_encoded VARCHAR(30),
+ wbsticker_id VARCHAR(300),
+ wbsticker_id_parts_A VARCHAR(30),
+ wbsticker_id_parts_B VARCHAR(30),
+ t integer(4) not null default (strftime('%s','now')),
+ is_send BOOLEAN not null default 0);

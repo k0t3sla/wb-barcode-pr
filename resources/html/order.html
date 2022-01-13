@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="columns">
+    <div class="column">     
+      <ul class="orders">
+          <li>{{order.article_imt}} - article_imt</li>
+          <li>{{order.color}} - color</li>
+          <li>{{order.size}} - size</li>
+          <li>{{order.article_wb}} - article_wb</li>
+          <li>{{order.chrt_id}} - chrt_id</li>
+          <li>{{order.barcode}} - barcode</li>
+          <li>{{order.trademark}} - trademark</li>
+          <li>{{order.order_id}} - order_id</li>
+          <li>{{order.wbsticker_encoded}} - wbsticker_encoded</li>
+          <li>{{order.wbsticker_id_parts_a}} - wbsticker_id_parts_A</li>
+          <li>{{order.wbsticker_id}} - wbsticker_id</li>
+          <li>{{order.wbsticker_id_parts_b}} - wbsticker_id_parts_B</li>
+          <li>{% if order.is_send %} нет!{% else %}да!{% endif %}</li>
+          <li>{{order.wbsticker|safe}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <form method="POST" action="/">
+        {% csrf-field %}
+        <p>
+          order_id:
+          <input class="input" type="text" name="order_id" value="{{order_id}}" />
+        </p>
+        {% if errors.order_id %}
+        <div class="notification is-danger">{{errors.order_id|join}}</div>
+        {% endif %}
+        <input type="submit" class="button is-primary" value="Удалить" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

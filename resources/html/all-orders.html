@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div>При последнем вводе: добавлено - {{last-edded}}</div>
+  <div>{% if last-error|count > 0 %} не добавлено - {{last-error|count}} ↓<ul>{% for item in last-error %}<li>{{item}}</li>{% endfor %}</ul> {% endif %}</div>
+  <hr>  
+  <div class="columns">
+    <div class="column">
+      <form method="POST" action="/">
+        {% csrf-field %}
+        <p>
+          <input class="input" type="text" name="order_id" value="{{order_id}}" />
+        </p>
+        {% if errors.order_id %}
+        <div class="notification is-danger">{{errors.order_id|join}}</div>
+        {% endif %}
+        <input type="submit" class="button is-primary" value="Добавить" />
+      </form>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <table class="table is-bordered is-striped is-narrow is-hoverable">
+        <thead>
+          <tr>
+            <th><abbr title="Номер заказа">Номер заказа</abbr></th>
+            <th><abbr title="Дата">Дата</abbr></th>
+            <th><abbr title="Статус">Распечатан?</abbr></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th><abbr title="Номер заказа">номер заказа</abbr></th>
+            <th><abbr title="Дата">Дата</abbr></th>
+            <th><abbr title="Статус">Распечатан?</abbr></th>
+          </tr>
+        </tfoot>
+        <tbody>
+            {% for item in orders %}
+            <tr>
+              <td><a href=order-{{item.order_id}}>{{item.order_id}}</a></td>
+              <td>{{item.localtime}}</td>
+              <td>{% if item.is_send %} нет!{% else %}да!{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      <table>       
+    </div>
+  </div>
+</div>
+{% endblock %}
