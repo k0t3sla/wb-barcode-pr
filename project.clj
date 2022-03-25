@@ -25,7 +25,7 @@
                  [org.webjars.npm/material-icons "1.0.0"]
                  [org.webjars/webjars-locator "0.42"]
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
-                 [org.xerial/sqlite-jdbc "3.36.0.3"]
+                 [org.postgresql/postgresql "42.3.2"]
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.9.4"]
                  [ring/ring-defaults "0.3.3"]
@@ -33,6 +33,7 @@
                  ;;
                  [org.clj-commons/clj-http-lite "0.4.392"]
                  [net.sourceforge.barbecue/barbecue "1.5-beta1"]
+                 [clj-pdf "2.5.8"]
                  [org.jdom/jdom "1.1.3"]]
 
   :min-lein-version "2.0.0"

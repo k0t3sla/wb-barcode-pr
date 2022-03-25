@@ -11,23 +11,15 @@ WHERE order_id = :order_id
 
 -- :name get-orders :? :*
 -- :doc selects all available orders
-SELECT *, datetime(t, 'unixepoch', 'localtime') as localtime FROM orders ORDER BY id DESC;
+select * from orders ORDER BY id DESC;
 
 -- :name get-today-orders :? :*
 -- :doc selects today orders
-SELECT *, 
-datetime(t, 'unixepoch', 'localtime') as localtime 
-FROM orders 
-WHERE date(datetime(t, 'unixepoch', 'localtime')) = date('now')
-ORDER BY id DESC;
+select * from orders WHERE t > TIMESTAMP 'today' ORDER BY id DESC;
 
 -- :name get-yesterday-orders :? :*
 -- :doc selects whis week orders
-SELECT *, 
-datetime(t, 'unixepoch', 'localtime') as localtime 
-FROM orders 
-WHERE DATE('now', 'weekday 0', '-1 days')
-ORDER BY id DESC;
+select * from orders where t::date = current_date - 1 ORDER BY id DESC;
 
 -- :name delete-order! :! :n
 -- :doc deletes a order record given the id

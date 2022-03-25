@@ -39,8 +39,8 @@
             {% for item in orders %}
             <tr>
               <td><a href=order-{{item.order_id}}>{{item.order_id}}</a></td>
-              <td>{{item.localtime}}</td>
-              <td>{% if item.is_send %} нет!{% else %}да!{% endif %}</td>
+              <td>{{item.t}}</td>
+              <td>{% if order.is_send = "false" %}да!{% else %}нет!{% endif %}</td>
             </tr>
             {% endfor %}
         </tbody>

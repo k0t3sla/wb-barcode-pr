@@ -33,8 +33,13 @@
       (convert-svg data))))
 
 (comment
-  (get-wb-data! "162142455")
-  (db/create-order! (get-wb-data! "162142455"))
+
+
+  (clojure.pprint/pprint (get-wb-data! "231188448"))
+
+  (db/create-order! (get-wb-data! "231188448"))
   (clojure.pprint/pprint (db/get-order (:id 1)))
+
+  {:color "CL407312Зеленый", :barcode "2001450496106", :wbsticker_id_parts_A "", :name "Бра", :chrt_id "54156221", :wbsticker_id "", :size "0", :wbsticker_id_parts_B "", :article_imt "CL407312-WBCL407312Зеленый", :order_id "233643038", :article_wb "21247310", :wbsticker_encoded "", :trademark "Citilux", :wbsticker ""}
   )
 

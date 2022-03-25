@@ -1,5 +1,5 @@
 CREATE TABLE orders
-(id INTEGER PRIMARY KEY AUTOINCREMENT,
+(id SERIAL PRIMARY KEY,
  article_imt VARCHAR(300),
  color VARCHAR(300),
  size VARCHAR(10),
@@ -13,5 +13,5 @@ CREATE TABLE orders
  wbsticker_id VARCHAR(300),
  wbsticker_id_parts_A VARCHAR(30),
  wbsticker_id_parts_B VARCHAR(30),
- t integer(4) not null default (strftime('%s','now')),
- is_send BOOLEAN not null default 0);
+ t timestamptz,
+ is_send BOOLEAN DEFAULT FALSE);

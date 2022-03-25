@@ -33,3 +33,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.barcode {
+  max-width: 389px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
